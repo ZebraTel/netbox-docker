@@ -10,15 +10,24 @@ services:
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
     healthcheck:
       retries: 15
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
   netbox-worker:
     volumes:
     - /volume1/docker/netbox:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
     - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
   netbox-housekeeping:
     volumes:
     - /volume1/docker/netbox:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
     - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
