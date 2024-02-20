@@ -1,7 +1,6 @@
 version: '3.4'
 services:
   netbox:
-    image: netbox:latest-plugins
     ports:
     - 9458:8080
     volumes:
@@ -15,7 +14,6 @@ services:
       context: .
       dockerfile: Dockerfile-Plugins
   netbox-worker:
-    image: netbox:latest-plugins
     volumes:
     - /volume1/docker/netbox:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
@@ -25,7 +23,6 @@ services:
       context: .
       dockerfile: Dockerfile-Plugins
   netbox-housekeeping:
-    image: netbox:latest-plugins
     volumes:
     - /volume1/docker/netbox:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
