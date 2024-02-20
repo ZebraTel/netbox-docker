@@ -1,1 +1,2 @@
 netbox-secrets
+netbox-topology-views
